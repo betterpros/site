@@ -1,3 +1,5 @@
+var grunt_output_dir = process.env.WERCKER_OUTPUT_DIR || 'public/'
+
 module.exports = function(grunt) {
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
@@ -8,7 +10,7 @@ module.exports = function(grunt) {
     wiredep: {
       target: {
         src: [
-          'public/**/*.html'
+          grunt_output_dir + '*.html'
         ]
       }
     },
@@ -24,7 +26,7 @@ module.exports = function(grunt) {
             expand: true,
             flatten: true,
             src: 'app/pages/*.jade',
-            dest: 'public/',
+            dest: grunt_output_dir,
             ext: '.html'
           }
         ]
@@ -35,13 +37,13 @@ module.exports = function(grunt) {
         expand: true,
         flatten: true,
         src: 'bower_components/jquery/dist/jquery.min.map',
-        dest: 'public/'
+        dest: grunt_output_dir
       },
       bootstrap: {
         expand: true,
         flatten: true,
         src: 'bower_components/bootstrap/dist/fonts/**',
-        dest: 'public/fonts/'
+        dest: grunt_output_dir + 'fonts/'
       }
     },
     watch: {
