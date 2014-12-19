@@ -5,14 +5,12 @@ html(lang='en')
     meta(charset="utf-8")
     meta(name="viewport" content="width=device-width, initial-scale=1")
     title='Bickel Dental Services'
+    link(rel="stylesheet" type="text/css" href="bootstrap.css")
+    link(rel="stylesheet" type="text/css" href="font-awesome.css")
+    link(rel="stylesheet" type="text/css" href="theme.css")
     style
-      include ../../lib/bootstrap/bootstrap.css
       | .row-padded { margin-bottom: 1em; }
       | .page-header h1 { color: rgb(0, 0, 139); }
-    style
-      include ../../lib/font-awesome/font-awesome.css
-    style
-      include ../../bower_components/bootstrap-theme-cirrus/dist/css/bootstrap.min.css
   body
     div.container
       div.row
@@ -27,10 +25,6 @@ html(lang='en')
         div.col-md-3(style="margin-top: 2em")
           include _rightbar.jade
 
-  script
-    include ../../lib/jquery/jquery.js
-  script
-    include ../../lib/bootstrap/bootstrap.js
-  script
-    include ../main.js
+  script(src="jquery.min.js")
+  script(src="bootstrap.js")
 

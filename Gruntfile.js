@@ -10,7 +10,7 @@ module.exports = function(grunt) {
     wiredep: {
       target: {
         src: [
-          grunt_output_dir + '*.html'
+          grunt_output_dir + '**'
         ]
       }
     },
@@ -36,14 +36,30 @@ module.exports = function(grunt) {
       jquery: {
         expand: true,
         flatten: true,
-        src: 'bower_components/jquery/dist/jquery.min.map',
+        src: [
+          'bower_components/jquery/dist/jquery.min.map',
+          'bower_components/jquery/dist/jquery.min.js',
+        ],
         dest: grunt_output_dir
       },
       bootstrap: {
         expand: true,
         flatten: true,
-        src: 'bower_components/bootstrap/dist/fonts/**',
-        dest: grunt_output_dir + 'fonts/'
+        src: [
+          'lib/bootstrap/bootstrap.css',
+          'lib/bootstrap/bootstrap.js'
+        ],
+        dest: grunt_output_dir
+      },
+      fontawesome: {
+        expand: true,
+        flatten: true,
+        src: 'lib/font-awesome/font-awesome.css',
+        dest: grunt_output_dir
+      },
+      theme: {
+        src: 'bower_components/bootstrap-theme-cirrus/dist/css/bootstrap.min.css',
+        dest: grunt_output_dir + 'theme.css'
       }
     },
     watch: {
