@@ -1,0 +1,24 @@
+{
+  "navs": [
+    {"name": "home", "href":"index.html", "title":"Home"},
+    {"name": "about", "href":"about.html", "title":"About"},
+    {
+      "name": "patients",
+      "href": "patients.html",
+      "title": "For Patients",
+      "sub": [
+        {"name": "appointments", "href": "appointments.html", "title": "Appointments"},
+        {"name": "dentures",     "href": "dentures.html",     "title": "Dentures"},
+        {"name": "crowns",       "href": "crowns.html",       "title": "Crowns/Bridges"},
+        {"name": "implants",     "href": "implants.html",     "title": "Implants"},
+        {"name": "smile",        "href": "smile.html",        "title": "Smile Makeover"}        
+      ]
+    },
+    {
+      "name": "professionals",
+      "href": "professionals.html",
+      "title": "For Professionals"
+    },
+    {"name": "contact", "href": "contact.html", "title": "Contact"}
+  ]
+}

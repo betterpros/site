@@ -1,0 +1,31 @@
+extends ../templates/_layout.jade
+
+block vars
+  - var page = "appointments"
+
+block content
+  h2 Appointments
+  p
+  | On your first appointment we take time to get to know you, thoroughly check your
+  | medical and oral history and find out what your long-term goals are. We may take 
+  | first impressions for study models to have as many details as possible to provide 
+  | you with appropriate, individual treatment options.
+  p 
+  | Please bring any x-rays you may have and also old dentures etc. Below you find a 
+  | copy of the medical history form we will ask you to fill out before your first 
+  | visit. We encourage you to read through it - if you wish, fill it out at home 
+  | and bring it to your appointment.
+  p 
+  | We want you to be able to make an informed decision and encourage questions at any time.
+  p 
+  | Please call or email with your queries.
+  p
+    br
+    a(href="mailto:info@betterpros.com.au")
+      i.fa.fa-envelope.fa-fw(aria-label="email")
+      |  info@betterpros.com.au
+    br
+    a(href="files/questionnaire.pdf")
+      i.fa.fa-file-pdf-o.fa-fw
+      |  questionnaire (PDF)
+

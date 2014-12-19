@@ -1,0 +1,22 @@
+mixin navLevel(level, isSub)
+  each nav in level
+    if page == nav.name
+      li.active
+        if isSub
+          a(href=nav.href style="margin-left: 1em")= nav.title
+        else
+          a(href=nav.href)= nav.title
+        if nav.sub
+          +navLevel(nav.sub, true)
+    else
+      li
+        if isSub
+          a(href=nav.href style="margin-left: 1em")= nav.title
+        else
+          a(href=nav.href)= nav.title
+        if nav.sub
+          +navLevel(nav.sub, true)
+
+ul.nav.nav-pills.nav-stacked
+  +navLevel(navs, false)
+

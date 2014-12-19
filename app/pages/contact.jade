@@ -1,0 +1,62 @@
+extend ../templates/_layout.jade
+
+block vars
+  - var page = "contact"
+
+block content
+  h2 Contact Details
+  address
+    strong Bickel Dental Sevices
+    br
+    a(href="tel:1300242535")
+      i.fa.fa-phone.fa-fw(aria-label="phone")
+      |  1300 BICKEL (1300 242 535)
+    br
+    a(href="fax:+61733783250")
+      i.fa.fa-fax.fa-fw(aria-label="fax")
+      |  +61 7 3378 3250
+    br
+    a(href="mailto:info@betterpros.com.au")
+      i.fa.fa-envelope.fa-fw(aria-label="email")
+      |  info@betterpros.com.au
+  h3 Practice Locations
+  div.row.row-padded
+    div.col-md-6
+      address
+        | Mitchelton
+        br
+        | 12 Osborne Rd
+        br
+        | Mitchelton QLD 4053
+    div.col-md-6.text-right
+      a(href="http://maps.google.com/maps?daddr=12%20Osborne%20Rd,Mitchelton%20QLD")
+        img(src="http://maps.google.com/maps/api/staticmap?center=12%20Osborne%20Rd,Mitchelton%20QLD&zoom=15&size=250x100&maptype=roadmap&markers=color:blue|12%20Osborne%20Rd,Mitchelton%20QLD&sensor=false")
+  div.row.row-padded
+    div.col-md-6
+      address
+        | Medici Medical Centre Unit 108
+        br
+        | 15 Scott Street
+        br
+        | Toowoomba QLD 4350
+    div.col-md-6.text-right
+      a(href="http://maps.google.com/maps?daddr=15%20Scott%20St,Toowoomba%20QLD")
+        img(src="http://maps.google.com/maps/api/staticmap?center=15%20Scott%20St,Toowoomba,%20QLD&zoom=15&size=250x100&maptype=roadmap&markers=color:blue|15%20Scott%20St,Toowoomba,%20QLD&sensor=false")
+  div.row.row-padded
+    div.col-md-6
+      address
+        | Brisbane Airport
+        br
+        | The AIDER
+        br
+        | Leonardo Dr/Da Vinci Blv
+    div.col-md-6.text-right
+      a(href="http://maps.google.com/maps?daddr=Da%20Vinci%20Boulevard,%20Brisbane")
+        img(src="http://maps.google.com/maps/api/staticmap?center=Da%20Vinci%20Boulevard,%20Brisbane&zoom=15&size=250x100&maptype=roadmap&markers=color:blue|Da%20Vinci%20Boulevard,%20Brisbane&sensor=false")
+  h3 Postal Address
+  address
+    strong Bickel Dental Sevices
+    br
+    | PO Box 642
+    br
+    | Kenmore QLD 4069
