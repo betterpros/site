@@ -10,8 +10,8 @@ module.exports = function(grunt) {
     wiredep: {
       target: {
         src: [
-          grunt_output_dir + '**.js',
-          grunt_output_dir + '**.html',
+          grunt_output_dir + '/**.js',
+          grunt_output_dir + '/**.html',
         ]
       }
     },
@@ -60,7 +60,7 @@ module.exports = function(grunt) {
       },
       theme: {
         src: 'bower_components/bootstrap-theme-cirrus/dist/css/bootstrap.min.css',
-        dest: grunt_output_dir + 'theme.css'
+        dest: grunt_output_dir + '/theme.css'
       }
     },
     watch: {
