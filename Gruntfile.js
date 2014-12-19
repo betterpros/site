@@ -10,7 +10,8 @@ module.exports = function(grunt) {
     wiredep: {
       target: {
         src: [
-          grunt_output_dir + '**'
+          grunt_output_dir + '**.js',
+          grunt_output_dir + '**.html',
         ]
       }
     },
