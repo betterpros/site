@@ -3,3 +3,9 @@ build:
   steps:
     - npm-install
     - grunt
+deploy:
+  steps:
+    - duleorlovic/ftp-deploy:
+        destination: ftp://ftp.betterpros.com.au/next
+        username: deploy@betterpros.com.au
+        password: $DEPLOY_PASSWORD
