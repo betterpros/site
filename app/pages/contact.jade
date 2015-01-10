@@ -23,17 +23,6 @@ block content
   div.row.row-padded
     div.col-md-6
       address
-        | Mitchelton
-        br
-        | 12 Osborne Rd
-        br
-        | Mitchelton QLD 4053
-    div.col-md-6.text-right
-      a(href="http://maps.google.com/maps?daddr=12%20Osborne%20Rd,Mitchelton%20QLD")
-        img(src="http://maps.google.com/maps/api/staticmap?center=12%20Osborne%20Rd,Mitchelton%20QLD&zoom=15&size=250x100&maptype=roadmap&markers=color:blue|12%20Osborne%20Rd,Mitchelton%20QLD&sensor=false")
-  div.row.row-padded
-    div.col-md-6
-      address
         | Medici Medical Centre Unit 108
         br
         | 15 Scott Street
@@ -45,9 +34,18 @@ block content
   div.row.row-padded
     div.col-md-6
       address
-        | Brisbane Airport
+        | Mitchelton
         br
-        | The AIDER
+        | 12 Osborne Rd
+        br
+        | Mitchelton QLD 4053
+    div.col-md-6.text-right
+      a(href="http://maps.google.com/maps?daddr=12%20Osborne%20Rd,Mitchelton%20QLD")
+        img(src="http://maps.google.com/maps/api/staticmap?center=12%20Osborne%20Rd,Mitchelton%20QLD&zoom=15&size=250x100&maptype=roadmap&markers=color:blue|12%20Osborne%20Rd,Mitchelton%20QLD&sensor=false")
+  div.row.row-padded
+    div.col-md-6
+      address
+        | Brisbane Airport
         br
         | Leonardo Dr/Da Vinci Blv
     div.col-md-6.text-right
@@ -60,3 +58,11 @@ block content
     | PO Box 642
     br
     | Kenmore QLD 4069
+  h3 Email us
+  p You may use the following form to contact us by Email.
+  form
+    div.form-group
+      label(for="email") Email address
+      input(type="email" class="form-control" id="email" placeholder="Enter email")
+    div.form-group
+      label(for="message") 
