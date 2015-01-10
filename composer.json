@@ -1,0 +1,14 @@
+{
+    "name": "betterpros/site",
+    "description": "betterpros site",
+    "require": {
+        "phpmailer/phpmailer": "~5.2"
+    },
+    "license": "AGPL",
+    "authors": [
+        {
+            "name": "Lucas Bickel",
+            "email": "hairmare@purplehaze.ch"
+        }
+    ]
+}

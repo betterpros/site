@@ -33,6 +33,17 @@ module.exports = function(grunt) {
         ]
       }
     },
+    exec: {
+      install_composer: 'curl -sS https://getcomposer.org/installer | php'
+    },
+    composer: {
+      options: {
+        usePhp: true,
+        composerLocation: 'composer.phar',
+        cwd: '.'
+      },
+      main: {}
+    },
     copy: {
       jquery: {
         expand: true,
@@ -61,6 +72,15 @@ module.exports = function(grunt) {
       theme: {
         src: 'bower_components/bootstrap-theme-cirrus/dist/css/bootstrap.min.css',
         dest: grunt_output_dir + '/theme.css'
+      },
+      composer: {
+        expand: true,
+        src: 'vendor/**',
+        dest: grunt_output_dir + '/vendor'
+      },
+      php: {
+        src: 'src/*.php',
+        dest: grunt_output_dir
       }
     },
     watch: {
@@ -81,6 +101,8 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-copy');
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-bower-task');
+  grunt.loadNpmTasks('grunt-exec');
+  grunt.loadNpmTasks('grunt-composer');
 
-  grunt.registerTask('default', ['bower', 'copy', 'jade', 'wiredep']);
+  grunt.registerTask('default', ['bower', 'exec:install_composer', 'composer:main:install', 'copy', 'jade', 'wiredep']);
 };
