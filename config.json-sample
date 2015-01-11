@@ -1,0 +1,19 @@
+{
+  "debug": false,
+  "mail": {
+    "host": "mail.example.com",
+    "port": 587,
+    "auth": {
+      "username": "mailsender@example.com",
+      "password": "verysecurepassword"
+    },
+    "from": {
+      "mail": "webmaster@example.com",
+      "name": "Webmaster"
+    },
+    "to": {
+      "mail": "webmaster@example.com",
+      "name": "Webmaster"
+    }
+  }
+}
