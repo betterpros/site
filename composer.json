@@ -2,7 +2,8 @@
     "name": "betterpros/site",
     "description": "betterpros site",
     "require": {
-        "phpmailer/phpmailer": "~5.2"
+        "phpmailer/phpmailer": "~5.2",
+        "noodlehaus/config": "0.1.*"
     },
     "license": "AGPL",
     "authors": [
