@@ -34,7 +34,15 @@ module.exports = function(grunt) {
       }
     },
     exec: {
-      install_composer: 'curl -sS https://getcomposer.org/installer | php'
+      install_composer: {
+        cmd: function() {
+          var fs = require('fs'), cmd = '';
+          if (!fs.existsSync(__dirname + '/composer.phar')) {
+            cmd = 'curl -sS https://getcomposer.org/installer | php'
+          }
+          return cmd;
+        }
+      }
     },
     composer: {
       options: {
