@@ -47,8 +47,7 @@ module.exports = function(grunt) {
     composer: {
       options: {
         usePhp: true,
-        composerLocation: 'composer.phar',
-        cwd: '.'
+        composerLocation: 'composer.phar'
       },
       main: {}
     },
@@ -84,10 +83,12 @@ module.exports = function(grunt) {
       composer: {
         expand: true,
         src: 'vendor/**',
-        dest: grunt_output_dir + '/vendor'
+        dest: grunt_output_dir + '/'
       },
       php: {
         src: 'src/*.php',
+        expand: true,
+        flatten: true,
         dest: grunt_output_dir
       }
     },
@@ -96,6 +97,7 @@ module.exports = function(grunt) {
         files: [
           'app/**.js',
           'app/**/*.jade',
+          'src/*.php',
           '*.js',
           '*.json',
         ],
@@ -112,5 +114,5 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-exec');
   grunt.loadNpmTasks('grunt-composer');
 
-  grunt.registerTask('default', ['bower', 'exec:install_composer', 'composer:main:install', 'copy', 'jade', 'wiredep']);
+  grunt.registerTask('default', ['bower', 'exec:install_composer', 'composer:main:install:optimize-autoloader', 'copy', 'jade', 'wiredep']);
 };
