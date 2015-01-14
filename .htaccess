@@ -1,6 +1,3 @@
-<Location /config.json>
-        Deny From All
-</Location>
-<Location /vendor>
-        Deny From All
-</Location>
+RewriteEngine On
+RewriteRule ^config.json / [R]
+RewriteRule ^vendor / [R]
