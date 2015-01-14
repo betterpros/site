@@ -76,7 +76,7 @@ module.exports = function(grunt) {
         src: [
           'lib/bootstrap/bootstrap.css'
         ],
-        dest: grunt_output_dir + 'style'
+        dest: grunt_output_dir + '/style'
       },
       fontawesome_css: {
         expand: true,
