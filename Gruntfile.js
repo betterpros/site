@@ -80,6 +80,11 @@ module.exports = function(grunt) {
         src: 'bower_components/bootstrap-theme-cirrus/dist/css/bootstrap.min.css',
         dest: grunt_output_dir + '/theme.css'
       },
+      composer: {
+        expand: true,
+        src: 'vendor/**',
+        dest: grunt_output_dir + '/'
+      },
       php: {
         src: 'src/*.php',
         expand: true,
