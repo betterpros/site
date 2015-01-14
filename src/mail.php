@@ -6,7 +6,7 @@
  * @licence AGPL
  */
 
-require __DIR__.'/vendor/autoload.php';
+require __DIR__.'/../vendor/autoload.php';
 
 $config = \Noodlehaus\Config::load(__DIR__ . '/../config.json');
 
@@ -19,7 +19,6 @@ if ($config['debug']) {
 
 $mail->isSMTP();
 $mail->Host = $config['mail']['host'];
-#$mail->SMTPAuth = true;
 $mail->Port = $config['mail']['port'];
 $mail->From = $config['mail']['from']['mail'];
 $mail->FromName = $config['mail']['from']['name'];
@@ -31,12 +30,17 @@ $mail->Password = $config['mail']['auth']['password'];
 
 $mail->addAddress($config['mail']['to']['mail'], $config['mail']['to']['name']);
 
-$mail->Subject = 'Mail from betterpros.com.au';
-$mail->Body = 'This is a test mail';
+if (PHPMailer::ValidateAddress($_POST['email'])) {
 
-if(!$mail->send()) {
-    echo 'Message could not be sent.';
-    echo 'Mailer Error: ' . $mail->ErrorInfo;
+    $mail->AddReplyTo($_POST['email']);
+    $mail->Subject = $_POST['subject'];
+    $mail->Body = $_POST['message'];
+
+    if(!$mail->send()) {
+        header('Location: mail_error.html?error='.urlencode($mail->ErrorInfo));
+    } else {
+        header("Location: mail_success.html");
+    }
 } else {
-    echo 'Message has been sent';
+    header("Location: mail_error.html?error=Invalid%20mail");
 }
