@@ -1,0 +1,6 @@
+<Location /config.json>
+        Deny From All
+</Location>
+<Location /vendor>
+        Deny From All
+</Location>
