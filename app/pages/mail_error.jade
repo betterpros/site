@@ -1,0 +1,10 @@
+extends ../templates/_layout.jade
+
+block content
+  div.panel.panel-danger
+    div.panel-heading Error
+    div.panel-body
+      p There was an error sending your message. Please try again.
+      p 
+        a(href="javascript:history.go(-1)") Back to form
+
