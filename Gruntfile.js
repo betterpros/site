@@ -103,7 +103,8 @@ module.exports = function(grunt) {
             grunt.log.writeln("Using config config.json-sample");
             var config_json = fs.readFileSync('./config.json-sample', {encoding: 'utf8'});
           }
-          fs.writeFile(grunt_output_dir + '/config.json', config_json, {}, done);
+          fs.writeFileSync(grunt_output_dir + '/config.json', config_json, {});
+          done();
         }
       }
     },
