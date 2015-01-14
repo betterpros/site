@@ -1,3 +1,26 @@
 RewriteEngine On
+
+# security redirects
 RewriteRule ^config.json / [R]
-RewriteRule ^vendor / [R]
+RewriteRule ^vendor      / [R]
+
+# cosmetic redirects
+RewriteRule ^index.html$ / [R=301]
+
+# legacy site redirects
+RewriteRule ^Node$                                    / [R=301]
+RewriteRule ^prof_bickel$                             /about.html [R=301]
+RewriteRule ^patient_services$                        /patients.html [R=301]
+RewriteRule ^appointments$                            /appointments.html [R=301]
+RewriteRule ^sites/default/files/questionnaire_2.pdf$ http://files.betterpros.com.au/Questionnaire.pdf [R=301]
+RewriteRule ^dentures$                                /dentures.html [R=301]
+RewriteRule ^crowns_n_bridges$                        /crowns.html [R=301]
+RewriteRule ^implants$                                /implants.html [R=301]
+RewriteRule ^smile_makeover$                          /smile.html [R=301]
+RewriteRule ^professional_services$                   /professionals.html [R=301]
+RewriteRule ^referrals$                               /professionals.html [R=301]
+RewriteRule ^courses$                                 /professionals.html [R=301]
+RewriteRule ^sites/default/files/Referral.pdf$        http://files.betterpros.com.au/Referral.pdf [R=301]
+RewriteRule ^contact_details$                         /contact.html [R=301]
+
+
