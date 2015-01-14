@@ -17,6 +17,8 @@ mixin navLevel(level, isSub)
         if nav.sub
           +navLevel(nav.sub, true)
 
-ul.nav.nav-pills.nav-stacked
+ul.nav.nav-pills.nav-stacked.hidden-xs.hidden-sm
+  +navLevel(navs, false)
+ul.nav.nav-pills.nav-stacked.collapse.hidden-md.hidden-lg(style="height: 1px")
   +navLevel(navs, false)
 
