@@ -98,7 +98,7 @@ module.exports = function(grunt) {
         call: function(grunt, options) {
           if (process.env.CONFIG_JSON) {
             grunt.log.writeln("Using config from CONFIG_JSON env");
-            var config_json = process.env.CONFIG_JSON.replace('\n', '');
+            var config_json = process.env.CONFIG_JSON;
           } else {
             grunt.log.writeln("Using config config.json-sample");
             var config_json = fs.readFileSync('./config.json-sample', {encoding: 'utf8'});
