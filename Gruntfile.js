@@ -1,4 +1,6 @@
-var grunt_output_dir = process.env.WERCKER_OUTPUT_DIR || 'public/'
+var fs = require('fs');
+var grunt_output_dir = process.env.WERCKER_OUTPUT_DIR || 'public/';
+var config_json = process.env.CONFIG_JSON || fs.readFileSync('./config.json-sample', {encoding: 'utf8'});
 
 module.exports = function(grunt) {
   grunt.initConfig({
@@ -36,7 +38,7 @@ module.exports = function(grunt) {
     exec: {
       install_composer: {
         cmd: function() {
-          var fs = require('fs'), cmd = '';
+          var cmd = '';
           if (!fs.existsSync(__dirname + '/composer.phar')) {
             cmd = 'curl -sS https://getcomposer.org/installer | php'
           }
@@ -92,6 +94,14 @@ module.exports = function(grunt) {
         dest: grunt_output_dir + '/web'
       }
     },
+    "file-creator": {
+      "config": {
+        'public/config.json': function(fs, fd, done) {
+           fs.writeSync(fd, config_json);
+           done();
+        }
+      }
+    },
     watch: {
       default: {
         files: [
@@ -113,6 +123,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-bower-task');
   grunt.loadNpmTasks('grunt-exec');
   grunt.loadNpmTasks('grunt-composer');
+  grunt.loadNpmTasks('grunt-file-creator');
 
-  grunt.registerTask('default', ['bower', 'exec:install_composer', 'composer:main:install:optimize-autoloader', 'copy', 'jade', 'wiredep']);
+  grunt.registerTask('default', ['bower', 'exec:install_composer', 'composer:main:install:optimize-autoloader', 'copy', 'file-creator:config', 'jade', 'wiredep']);
 };
