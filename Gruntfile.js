@@ -66,20 +66,35 @@ module.exports = function(grunt) {
         expand: true,
         flatten: true,
         src: [
-          'lib/bootstrap/bootstrap.css',
           'lib/bootstrap/bootstrap.js'
         ],
         dest: grunt_output_dir 
       },
-      fontawesome: {
+      bootstrap_css: {
+        expand: true,
+        flatten: true,
+        src: [
+          'lib/bootstrap/bootstrap.css'
+        ],
+        dest: grunt_output_dir + 'style'
+      },
+      fontawesome_css: {
         expand: true,
         flatten: true,
         src: 'lib/font-awesome/font-awesome.css',
-        dest: grunt_output_dir 
+        dest: grunt_output_dir  + '/style'
+      },
+      fontawesome_font: {
+        expand: true,
+        flatten: true,
+        src: [
+          'lib/font-awesome/fontawesome-webfont.*'
+        ],
+        dest: grunt_output_dir  + '/fonts/'
       },
       theme: {
         src: 'bower_components/bootstrap-theme-cirrus/dist/css/bootstrap.min.css',
-        dest: grunt_output_dir + '/theme.css'
+        dest: grunt_output_dir + '/style/theme.css'
       },
       composer: {
         expand: true,
