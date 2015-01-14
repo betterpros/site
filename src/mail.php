@@ -6,9 +6,9 @@
  * @licence AGPL
  */
 
-require __DIR__.'/../vendor/autoload.php';
+require __DIR__.'/vendor/autoload.php';
 
-$config = \Noodlehaus\Config::load(__DIR__ . '/../config.json');
+$config = \Noodlehaus\Config::load(__DIR__ . '/config.json');
 
 $mail = new PHPMailer;
 
