@@ -1,6 +1,5 @@
 var fs = require('fs');
 var grunt_output_dir = process.env.WERCKER_OUTPUT_DIR || 'public/';
-var config_json = process.env.CONFIG_JSON || fs.readFileSync('./config.json-sample', {encoding: 'utf8'});
 
 module.exports = function(grunt) {
   grunt.initConfig({
@@ -97,6 +96,13 @@ module.exports = function(grunt) {
     execute: {
       create_config: {
         call: function(grunt, options, done) {
+          if (process.env.CONFIG_JSON) {
+            grunt.log.writeln("Using config from CONFIG_JSON env");
+            var config_json = process.env.CONFIG_JSON;
+          } else {
+            grunt.log.writeln("Using config config.json-sample");
+            var config_json = fs.readFileSync('./config.json-sample', {encoding: 'utf8'});
+          }
           fs.writeFile(grunt_output_dir + '/config.json', config_json, {}, done);
         }
       }
