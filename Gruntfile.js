@@ -12,8 +12,8 @@ module.exports = function(grunt) {
     wiredep: {
       target: {
         src: [
-          grunt_output_dir + '/web/**.js',
-          grunt_output_dir + '/web/**.html',
+          grunt_output_dir + '/public_html/**.js',
+          grunt_output_dir + '/public_html/**.html',
         ]
       }
     },
@@ -29,7 +29,7 @@ module.exports = function(grunt) {
             expand: true,
             flatten: true,
             src: 'app/pages/*.jade',
-            dest: grunt_output_dir + '/web',
+            dest: grunt_output_dir + '/public_html',
             ext: '.html'
           }
         ]
@@ -61,7 +61,7 @@ module.exports = function(grunt) {
           'bower_components/jquery/dist/jquery.min.map',
           'bower_components/jquery/dist/jquery.min.js',
         ],
-        dest: grunt_output_dir + '/web'
+        dest: grunt_output_dir + '/public_html'
       },
       bootstrap: {
         expand: true,
@@ -70,17 +70,17 @@ module.exports = function(grunt) {
           'lib/bootstrap/bootstrap.css',
           'lib/bootstrap/bootstrap.js'
         ],
-        dest: grunt_output_dir + '/web'
+        dest: grunt_output_dir + '/public_html'
       },
       fontawesome: {
         expand: true,
         flatten: true,
         src: 'lib/font-awesome/font-awesome.css',
-        dest: grunt_output_dir + '/web'
+        dest: grunt_output_dir + '/public_html'
       },
       theme: {
         src: 'bower_components/bootstrap-theme-cirrus/dist/css/bootstrap.min.css',
-        dest: grunt_output_dir + '/web/theme.css'
+        dest: grunt_output_dir + '/public_html/theme.css'
       },
       composer: {
         expand: true,
@@ -91,7 +91,7 @@ module.exports = function(grunt) {
         src: 'src/*.php',
         expand: true,
         flatten: true,
-        dest: grunt_output_dir + '/web'
+        dest: grunt_output_dir + '/public_html'
       }
     },
     "file-creator": {
