@@ -1,4 +1,4 @@
-box: wercker/nodejs
+box: zmsaunders/php-node@0.0.5
 build:
   steps:
     - npm-install
