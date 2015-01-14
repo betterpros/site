@@ -94,11 +94,10 @@ module.exports = function(grunt) {
         dest: grunt_output_dir + '/public_html'
       }
     },
-    "file-creator": {
-      "config": {
-        'public/config.json': function(fs, fd, done) {
-           fs.writeSync(fd, config_json);
-           done();
+    execute: {
+      create_config: {
+        call: function(grunt, options, done) {
+          fs.writeFile(grunt_output_dir + '/config.json', config_json, {}, done);
         }
       }
     },
@@ -123,7 +122,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-bower-task');
   grunt.loadNpmTasks('grunt-exec');
   grunt.loadNpmTasks('grunt-composer');
-  grunt.loadNpmTasks('grunt-file-creator');
+  grunt.loadNpmTasks('grunt-execute');
 
-  grunt.registerTask('default', ['bower', 'exec:install_composer', 'composer:main:install:optimize-autoloader', 'copy', 'file-creator:config', 'jade', 'wiredep']);
+  grunt.registerTask('default', ['bower', 'exec:install_composer', 'composer:main:install:optimize-autoloader', 'copy', 'execute:create_config', 'jade', 'wiredep']);
 };
