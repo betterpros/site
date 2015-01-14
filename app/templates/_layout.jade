@@ -1,4 +1,23 @@
 doctype html
+mixin navLevel(level, isSub)
+  each nav in level
+    if page == nav.name
+      li.active
+        if isSub
+          a(href=nav.href style="margin-left: 1em")= nav.title
+        else
+          a(href=nav.href)= nav.title
+        if nav.sub
+          +navLevel(nav.sub, true)
+    else
+      li
+        if isSub
+          a(href=nav.href style="margin-left: 1em")= nav.title
+        else
+          a(href=nav.href)= nav.title
+        if nav.sub
+          +navLevel(nav.sub, true)
+
 html(lang='en')
   block vars
   head
@@ -19,9 +38,12 @@ html(lang='en')
             h1 Bickel Dental Services
               button.btn.btn-default.hidden-lg.hidden-md.pull-right(type="button" data-toggle="collapse" data-target=".collapse")
                 i.fa.fa-bars
+            ul.nav.nav-pills.nav-stacked.collapse.hidden-md.hidden-lg(style="height: 1px")
+              +navLevel(navs, false)
           div.row
             div.col-md-3
-              include _nav.jade
+              ul.nav.nav-pills.nav-stacked.hidden-xs.hidden-sm
+                +navLevel(navs, false)
             div.col-md-9
               block content
         div.col-md-3(style="margin-top: 2em")
